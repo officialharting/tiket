@@ -8,8 +8,8 @@
                         <div class="de-flex-col">
                             <!-- logo begin -->
                             <div id="logo">
-                                <a href="02_djfest-index.html">
-                                    <img alt="" src="images-dj/logo-light.png" />
+                                <a href="/">
+                                    <img alt="" src="{{ asset('client/images-dj/junjitix.png') }}" />
                                 </a>
                             </div>
                             <!-- logo close -->
@@ -21,11 +21,6 @@
                         <!-- mainmenu begin -->
                         <ul id="mainmenu">
                             <li><a href="#de-carousel">Home</a>
-                                <ul>
-                                    <li><a href="index.html">Rockfest</a></li>
-                                    <li><a href="02_djfest-index.html">DJFest</a></li>
-                                    <li><a href="03_electrofest-index.html">Electrofest</a></li>
-                                </ul>
                             </li>
                             <li><a href="#section-artists">Artists</a></li>
                             <li><a href="#section-schedule">Schedule</a></li>
@@ -43,8 +38,7 @@
                     </div>
                     <div class="de-flex-col">
                         <div class="menu_side_area">
-                            <a href="#section-tickets" class="btn-main"><i class="fa fa-sign-in"></i><span>Buy
-                                    Ticket</span></a>
+                            <a href="/login" class="btn-main"><i class="fa fa-sign-in"></i><span>Login</span></a>
                             <span id="menu-btn"></span>
                         </div>
                     </div>
