@@ -1,10 +1,11 @@
 /********** Template CSS **********/
 
 :root {
-    --primary: #EB1616;
+    --primary: #cdff6b;
     --secondary: #191C24;
     --light: #6C7293;
     --dark: #000000;
+    --blue: #371990;
 }
 
 .back-to-top {
@@ -250,7 +251,7 @@
 
 .bootstrap-datetimepicker-widget table td.active,
 .bootstrap-datetimepicker-widget table td.active:hover {
-    background: var(--primary);
+    background: #426400;
 }
 
 .bootstrap-datetimepicker-widget table td.today::before {

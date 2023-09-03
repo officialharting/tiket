@@ -1,7 +1,7 @@
-<x-client-layout>
+<x-client-layout title="Home">
     <div id="wrapper">
-        <x-preloader />
-        <x-header />
+        <x-client.preloader />
+        <x-client.header />
         <!-- content begin -->
         <div class="no-bottom no-top" id="content">
             <div id="top"></div>
@@ -573,6 +573,6 @@
         </div>
         <!-- content close -->
         <a href="#" id="back-to-top"></a>
-        <x-footer></x-footer>
+        <x-client.footer/>
     </div>
 </x-client-layout>

@@ -28,3 +28,10 @@ Route::get('signup', [AdminController::class,'signup']);
 // Dashboard
 Route::get('dashboard', [AdminController::class,'dashboard']);
 
+// Customer
+Route::get('customer', [AdminController::class,'customer']);
+// Event
+Route::get('event', [AdminController::class,'event']);
+// Admin
+Route::get('user', [AdminController::class,'user']);
+
