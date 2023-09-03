@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Beranda
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.client.home');
 });
+
+// Sign In
+Route::get('signin', [AdminController::class,'signin']);
+
+// Sign Up
+Route::get('signup', [AdminController::class,'signup']);
+
+// Dashboard
+Route::get('dashboard', [AdminController::class,'dashboard']);
+
