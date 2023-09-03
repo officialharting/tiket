@@ -9,7 +9,7 @@
                             <!-- logo begin -->
                             <div id="logo">
                                 <a href="/">
-                                    <img alt="" src="{{ asset('client/images-dj/junjitix.png') }}" />
+                                    <img alt="" height="40px" src="{{ asset('client/images-dj/logo-junji.png') }}" />
                                 </a>
                             </div>
                             <!-- logo close -->
@@ -38,7 +38,7 @@
                     </div>
                     <div class="de-flex-col">
                         <div class="menu_side_area">
-                            <a href="/login" class="btn-main"><i class="fa fa-sign-in"></i><span>Login</span></a>
+                            <a href="/signin" class="btn-main"><i class="fa fa-sign-in"></i><span>Sign In</span></a>
                             <span id="menu-btn"></span>
                         </div>
                     </div>
