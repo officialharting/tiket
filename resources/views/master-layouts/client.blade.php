@@ -2,8 +2,15 @@
 <html lang="zxx">
 
 <head>
-    <title>Junjitix - Music Festival Event</title>
-    <link rel="icon" href="{{ asset('client/images-dj/icon.png') }}" type="image/gif" sizes="16x16">
+    <title>
+        @if ($title = "Home")
+        Junjitix
+        @else
+        {{ $title }} - Junjitix
+
+        @endif
+    </title>
+    <link rel="icon" href="{{ asset('client/images-dj/junji.png') }}" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="Rockfest - Music Festival Event, DJ Concert and Night Club Website Template" name="description" />

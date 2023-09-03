@@ -21,4 +21,19 @@ class AdminController extends Controller
         {
             return view ('pages.admin.dashboard');
         }
+        // Halaman Customer
+        public function customer()
+        {
+            return view ('pages.admin.customer');
+        }
+        // Halaman event
+        public function event()
+        {
+            return view ('pages.admin.event');
+        }
+        // Halaman User
+        public function user()
+        {
+            return view ('pages.admin.user');
+        }
 }

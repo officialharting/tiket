@@ -12,9 +12,11 @@ class AdminLayout extends Component
      * Create a new component instance.
      */
     public $title;
-    public function __construct($title=null)
+    public $menu;
+    public function __construct($title=null,$menu=null)
     {
         $this->title = $title ?? config('app.name');
+        $this->menu = $menu ?? "dashboard";
     }
 
     /**
