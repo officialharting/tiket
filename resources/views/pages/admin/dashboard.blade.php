@@ -10,8 +10,17 @@
 
             <x-admin.navbar />
 
+
             <!-- Sale & Revenue Start -->
             <div class="container-fluid pt-4 px-4">
+                <!-- Alert Notification -->
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="fa fa-exclamation-circle me-2"></i> {{ session()->get('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                <!-- End Alert Notification -->
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
@@ -279,7 +288,7 @@
             </div>
             <!-- Widgets End -->
 
-            <x-admin.footer/>
+            <x-admin.footer />
 
         </div>
         <!-- Content End -->

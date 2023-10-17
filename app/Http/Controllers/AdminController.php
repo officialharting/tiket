@@ -6,16 +6,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-        //Halaman SignIn
-        public function signin()
-        {
-            return view ('pages.admin.signin');
-        }
-        //Halaman SignUp
-        public function signup()
-        {
-            return view ('pages.admin.signup');
-        }
+
         // Halaman Dashboard
         public function dashboard()
         {
@@ -32,8 +23,8 @@ class AdminController extends Controller
             return view ('pages.admin.event');
         }
         // Halaman User
-        public function user()
+        public function admin()
         {
-            return view ('pages.admin.user');
+            return view ('pages.admin.admin');
         }
 }

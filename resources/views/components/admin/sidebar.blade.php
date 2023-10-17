@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="ms-3">
-                    <h6 class="mb-0">Nasdar</h6>
+                    <h6 class="mb-0">{{ Auth::user()->name }}</h6>
                     <span>Admin</span>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             </div> --}}
             <a href="{{ url('customer') }}" class="nav-item nav-link {{ $menu == 'customer' ? 'active' : '' }}"><i class="fa fa-th me-2"></i>Customer</a>
             <a href="{{ url('event') }}" class="nav-item nav-link {{ $menu == 'event' ? 'active' : '' }}"><i class="fa fa-keyboard me-2"></i>Event</a>
-            <a href="{{ url('user') }}" class="nav-item nav-link {{ $menu == 'user' ? 'active' : '' }}"><i class="fa fa-table me-2"></i>User</a>
+            <a href="{{ url('admin') }}" class="nav-item nav-link {{ $menu == 'admin' ? 'active' : '' }}"><i class="fa fa-table me-2"></i>Admin</a>
             {{-- <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a> --}}
             {{-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
