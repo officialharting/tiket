@@ -11,9 +11,8 @@ class SignupController extends Controller
         return view ('pages.auth.signup');
     }
     public function store(SignupRequest $request){
-
-        User::Create($request->all());
-
+        $user = User::Create($request->all());
+        $user->assignRole('user');
        return redirect(url('dashboard'))->with('success','Thank you, you are now registered.');
     }
 }

@@ -34,10 +34,8 @@ Route::middleware('guest')->group(function ()
 
     });
 
-Route::middleware('auth')->group(function ()
+    Route::middleware(['auth','role:admin|user'])->group(function ()
     {
-        // Logout
-        Route::post('logout',[SignoutController::class, 'logout'])->name('logout');
         // Dashboard
         Route::get('dashboard', [AdminController::class,'dashboard']);
         // Customer
@@ -48,3 +46,6 @@ Route::middleware('auth')->group(function ()
         Route::get('admin', [AdminController::class,'admin']);
 
     });
+
+    // Logout
+    Route::post('logout',[SignoutController::class, 'logout'])->name('logout');
