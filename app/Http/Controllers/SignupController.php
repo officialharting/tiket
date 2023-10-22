@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SignupRequest;
 use App\Models\User;
+use App\Http\Requests\SignupRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
 
 class SignupController extends Controller
 {
@@ -13,6 +15,8 @@ class SignupController extends Controller
     public function store(SignupRequest $request){
         $user = User::Create($request->all());
         $user->assignRole('user');
-       return redirect(url('dashboard'))->with('success','Thank you, you are now registered.');
+        event(new Registered($user));
+        Auth::login($user);
+       return redirect(url('/email/verify'));
     }
 }

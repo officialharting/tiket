@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-
+        public function lupa()
+        {
+            return view ('pages.auth.forgot-password');
+        }
         // Halaman Dashboard
         public function dashboard()
         {
@@ -16,11 +19,6 @@ class AdminController extends Controller
         public function customer()
         {
             return view ('pages.admin.customer');
-        }
-        // Halaman event
-        public function event()
-        {
-            return view ('pages.admin.event');
         }
         // Halaman User
         public function admin()

@@ -20,7 +20,7 @@
                             @csrf
                             <div class="form-floating mb-3">
                                 <input type="text" name="name" class="form-control" id="fullname"
-                                    placeholder="Fullname">
+                                    placeholder="Fullname" value="{{ old('name') }}">
                                 <label for="fullname">Fullname</label>
                                 @error('name')
                                     <div class="text-danger mt-2">
@@ -30,7 +30,7 @@
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" name="username" class="form-control" id="username"
-                                    placeholder="Username">
+                                    placeholder="Username"  value="{{ old('username') }}">
                                 <label for="username">Username</label>
                                 @error('username')
                                     <div class="text-danger mt-2">
@@ -40,7 +40,7 @@
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="email" name="email" class="form-control" id="floatingInput"
-                                    placeholder="name@example.com">
+                                    placeholder="name@example.com"  value="{{ old('email') }}">
                                 <label for="floatingInput">Email address</label>
                                 @error('email')
                                     <div class="text-danger mt-2">
@@ -58,10 +58,13 @@
                                     </div>
                                 @enderror
                             </div>
-                            <input type="hidden" name="roles" class="form-control" id="floatingPassword"
-                                value="user">
+                            <div class="form-floating mb-4">
+                                <input type="password" name="password_confirmation" class="form-control" id="floatingPassword"
+                                    placeholder="Password">
+                                <label for="floatingPassword">Confirm Password</label>
+                            </div>
                             <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
-                            <p class="text-center mb-0">Already have an Account? <a href="signin">Sign In</a></p>
+                            <p class="text-center mb-0">Already have an Account ? <a href="signin">Sign In</a></p>
                         </form>
                     </div>
                 </div>

@@ -9,16 +9,21 @@
                     <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <a href="{{ url('/') }}" class="">
-                                <h3 class="text-primary"><img alt="" height="40px"
-                                        src="{{ asset('client/images-dj/logo-junji.png') }}" /></h3>
+                                <img alt="" height="40px"
+                                    src="{{ asset('client/images-dj/logo-junji.png') }}" />
                             </a>
                             <h3>Sign In</h3>
                         </div>
+                        @if (session()->has('status'))
+                            <div class="alert alert-success my-3" role="alert">
+                                {{ session()->get('status') }}
+                            </div>
+                        @endif
                         <form action="{{ Route('signin') }}" method="post">
                             @csrf
                             <div class="form-floating mb-3">
                                 <input type="email" name="email" class="form-control" id="floatingInput"
-                                    placeholder="name@example.com">
+                                    placeholder="name@example.com" value="{{ old('email') }}">
                                 <label for="floatingInput">Email address</label>
                                 @error('email')
                                     <div class="text-danger mt-2">
@@ -26,7 +31,7 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-floating mb-4">
+                            <div class="form-floating mb-2">
                                 <input type="password" name="password" class="form-control" id="floatingPassword"
                                     placeholder="Password">
                                 <label for="floatingPassword">Password</label>
@@ -36,15 +41,13 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                </div>
-                                <a href="">Forgot Password</a>
+                            <div class="d-flex align-items-center justify-content-end mb-4">
+                                <a href="{{ url('forgot-password') }}">Forgot Password ?</a>
                             </div>
                             <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
-                            <p class="text-center mb-0">Don't have an Account? <a href="{{ route ('signup') }}">Sign Up</a></p>
+                            <p class="text-center mb-0">Don't have an Account ?
+                                <a href="{{ route('signup') }}"> Sign Up</a>
+                            </p>
                         </form>
                     </div>
                 </div>

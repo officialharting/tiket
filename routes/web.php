@@ -2,9 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\SigninController;
 use App\Http\Controllers\SignupController;
+use App\Http\Controllers\VerifyController;
 use App\Http\Controllers\SignoutController;
+use App\Http\Controllers\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +21,10 @@ use App\Http\Controllers\SignoutController;
 */
 
 // Beranda
-Route::get('/', function () {
-    return view('pages.client.home');
-});
+Route::get('/', function () { return view('pages.client.home'); });
 
+
+// Khusus Tamu bisa akses
 Route::middleware('guest')->group(function ()
     {
         // Sign In
@@ -32,20 +35,37 @@ Route::middleware('guest')->group(function ()
         Route::get('signup', [SignupController::class,'create'])->name('signup');
         Route::post('signup', [SignupController::class,'store']);
 
+        // Forgot Password
+        Route::get('forgot-password', [ForgotPasswordController::class, 'password_request'])->name('password.request');
+        Route::post('forgot-password', [ForgotPasswordController::class, 'password_email'])->name('password.email');
+        Route::get('reset-password/{token}', [ForgotPasswordController::class, 'password_reset'])->name('password.reset');
+        Route::post('reset-password', [ForgotPasswordController::class, 'password_reset_store'])->name('password.update');
     });
 
-    Route::middleware(['auth','role:admin|user'])->group(function ()
+// Verifikasi Email
+Route::middleware(['auth','role:admin|user'])->group(function ()
+    {
+        // Notif Verifikasi by Email
+        Route::get('email/verify', [VerifyController::class,'notice'])->name('verification.notice');
+        // Link Verifikasi by Email di kirim ke email yang terdaftar
+        Route::get('email/verify/{id}/{hash}', [VerifyController::class,'unverified'])->name('verification.verify');
+        // Link Kirim Ulang verifikasi email
+        Route::post('email/verification-notification', [VerifyController::class,'send_back'])->middleware('throttle:6,1')->name('verification.send');
+    });
+
+// Dashboard Admin
+Route::middleware(['auth','verified','role:admin|user'])->group(function ()
     {
         // Dashboard
         Route::get('dashboard', [AdminController::class,'dashboard']);
+        // Event
+        Route::resource('event', EventController::class);
         // Customer
         Route::get('customer', [AdminController::class,'customer']);
-        // Event
-        Route::get('event', [AdminController::class,'event']);
         // Admin
         Route::get('admin', [AdminController::class,'admin']);
-
     });
 
-    // Logout
-    Route::post('logout',[SignoutController::class, 'logout'])->name('logout');
+// Logout
+Route::post('logout',[SignoutController::class, 'logout'])->middleware('auth')->name('logout');
+
